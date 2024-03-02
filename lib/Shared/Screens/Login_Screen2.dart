@@ -65,7 +65,7 @@ class LoginScreen2 extends StatelessWidget {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => Navigation_screen()));
                     // print('hellowold');
-                    loginScreen();
+                    HomeScreen();
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xff3EB54B),
