@@ -1,3 +1,4 @@
+import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/Shared/Widget/search_widget.dart';
 
@@ -15,7 +16,7 @@ class _Courses_screenState extends State<Courses_screen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Directionality(
-        textDirection:TextDirection.rtl ,
+        textDirection: TextDirection.rtl,
         child: Column(children: [
           Search_widget(coursescontroller, onChanged: (i) {}),
           ListTile(
@@ -27,11 +28,16 @@ class _Courses_screenState extends State<Courses_screen> {
             ),
           ),
           Expanded(
-              child: GridView.builder(
+              child: DynamicHeightGridView(
             itemCount: 5,
-            itemBuilder: (context, index) => InkWell(
+            shrinkWrap: true,
+            crossAxisCount: 2,
+            builder: (context, index) => InkWell(
                 onTap: () {},
                 child: Container(
+                  height: MediaQuery.of(context).size.height / 3.2,
+                  margin: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                       gradient: index % 2 == 0
                           ? LinearGradient(
@@ -61,8 +67,8 @@ class _Courses_screenState extends State<Courses_screen> {
                         index % 2 == 0
                             ? 'تكورس تعلم لغة الاشارة وكل المهارات التي تساعدك على التواصل مع الاخرين'
                             : 'كورس تعلم تصميم وبرمجة الويب بلغة الاشارة يجعلك قادر على التوغل فى سوق العمل',
-                        style:
-                            TextStyle(color: Colors.grey.shade100, fontSize: 10),
+                        style: TextStyle(
+                            color: Colors.grey.shade100, fontSize: 10),
                       ),
                       Row(
                         children: [
@@ -83,9 +89,8 @@ class _Courses_screenState extends State<Courses_screen> {
                     ],
                   ),
                 )),
-            padding: EdgeInsets.only(left: 8.0, right: 8.0),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, mainAxisSpacing: 8.0, crossAxisSpacing: 8.0),
+            crossAxisSpacing: 8.0,
+            mainAxisSpacing: 8.0,
           ))
         ]),
       ),

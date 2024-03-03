@@ -7,7 +7,6 @@ import 'package:untitled/Shared/Screens/list_rest2.dart';
 import 'package:untitled/Shared/Screens/list_train.dart';
 import 'package:untitled/Shared/Widget/search_widget.dart';
 import 'package:untitled/Shared/Widget/ListWidget.dart';
-import 'package:untitled/Shared/Screens/list_rest2.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -33,14 +32,12 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                homepage_widget(
-                    'bank.png',
-                    'بنك',
-                    () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                        return ListBank();
-                      }));
-                    },
+                homepage_widget('bank.png', 'بنك', () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return ListBank();
+                  }));
+                },
                     Size(MediaQuery.of(context).size.width / 2.2,
                         MediaQuery.of(context).size.height / 5.5),
                     Color(0xff3EB54B)),
@@ -74,40 +71,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     controller: controller,
                     padEnds: false,
                     children: [
-                      homepage_widget(
-                          'hotel (1).png',
-                          'فندق',
-                          () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                              return ListHotel();
-                            }));
-                          },
+                      homepage_widget('hotel (1).png', 'فندق', () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return ListHotel();
+                        }));
+                      },
                           Size(MediaQuery.of(context).size.width,
                               MediaQuery.of(context).size.height / 5.5),
                           Color(0xff3EB54B)),
                       Padding(
                         padding: const EdgeInsets.only(left: 5, right: 5),
-                        child: homepage_widget(
-                            'train.png',
-                            'محطة القطار',
-                            () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                                return ListTrain();
-                              }));
-                            },
+                        child: homepage_widget('train.png', 'محطة القطار', () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return ListTrain();
+                          }));
+                        },
                             Size(MediaQuery.of(context).size.width,
                                 MediaQuery.of(context).size.height / 5.5),
                             Color(0xff005f74)),
                       ),
-                      homepage_widget(
-                          'Vector.png',
-                          'تاكسي',
-                          () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                              return ListTax();
-
-                            }));
-                          },
+                      homepage_widget('Vector.png', 'تاكسي', () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return ListTax();
+                        }));
+                      },
                           Size(MediaQuery.of(context).size.width,
                               MediaQuery.of(context).size.height / 5.5),
                           Color(0xff3EB54B))
@@ -116,14 +106,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Padding(
                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                child: homepage_widget(
-                    'house.png',
-                    'شهر عقاري',
-                    () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                        return ListEstate();
-                      }));
-                    },
+                child: homepage_widget('house.png', 'شهر عقاري', () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return ListEstate();
+                  }));
+                },
                     Size(MediaQuery.of(context).size.width,
                         MediaQuery.of(context).size.height / 5.5),
                     Color(0xff3EB54B))),
@@ -149,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 alignment: Alignment.centerLeft,
                 child: Container(
                   height: fixedSize!.height / 1.8,
-                  width: fixedSize!.height / 1.8,
+                  width: fixedSize.height / 1.8,
                   margin: EdgeInsets.only(right: 9.0, top: 8),
                   decoration: BoxDecoration(
                       image: DecorationImage(

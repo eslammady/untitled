@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Shared/Screens/home_Screen.dart';
-import 'package:untitled/Shared/Screens/navigation_screen.dart';
-import 'package:untitled/Shared/Screens/signup_screen.dart';
+import 'package:untitled/Controller/auth_controller.dart';
 
-class LoginScreen2 extends StatelessWidget {
+class Signup_screen extends StatefulWidget {
+  const Signup_screen({super.key});
+
+  @override
+  State<Signup_screen> createState() => _Signup_screenState();
+}
+
+class _Signup_screenState extends State<Signup_screen> {
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double heightScreen = MediaQuery.of(context).size.height;
@@ -17,9 +25,7 @@ class LoginScreen2 extends StatelessWidget {
           margin: EdgeInsets.only(left: 16, right: 16),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: ListView(
             children: [
               Image.asset(
                 "assets/image/8111388 1.png",
@@ -30,12 +36,29 @@ class LoginScreen2 extends StatelessWidget {
                 height: 40,
               ),
               TextFormField(
+                controller: namecontroller,
+                decoration: InputDecoration(
+                  hintText: 'الاسم ',
+                  border: OutlineInputBorder(),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey)),
+                  prefixIcon: Icon(Icons.person),
+                  // labelText: 'enter your mail',
+                ),
+              ),
+              SizedBox(
+                height: 19,
+              ),
+              TextFormField(
+                controller: emailcontroller,
                 decoration: InputDecoration(
                   hintText: 'البريد الالكتروني ',
                   hintStyle: TextStyle(
                     color: Colors.deepOrange,
                   ),
                   border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey)),
                   prefixIcon: Icon(Icons.email_outlined),
                   // labelText: 'enter your mail',
                 ),
@@ -44,13 +67,16 @@ class LoginScreen2 extends StatelessWidget {
                 height: 19,
               ),
               TextFormField(
+                controller: passwordcontroller,
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'كلمة المرور',
                   hintStyle: TextStyle(
-                    color: Colors.cyan,
+                    color: Colors.grey,
                   ),
                   border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey)),
                   prefixIcon: Icon(Icons.lock),
                   suffixIcon: Icon(Icons.visibility_off),
                 ),
@@ -60,21 +86,22 @@ class LoginScreen2 extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Navigation_screen()));
-                    // print('hellowold');
-                    HomeScreen();
+                    Map data = {
+                      "email": emailcontroller.text,
+                      "password": passwordcontroller.text,
+                      "name": namecontroller.text
+                    };
+                    if (namecontroller.text.isNotEmpty &&
+                        emailcontroller.text.isNotEmpty &&
+                        passwordcontroller.text.isNotEmpty)
+                      AuthController().signup(data);
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xff3EB54B),
                       shadowColor: Colors.lightBlue,
                       fixedSize:
                           Size(MediaQuery.of(context).size.width * .85, 48)),
-                  child: Text('تسجيل الدخول')),
-              TextButton(
-                  onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Signup_screen())),
-                  child: Text('عمل حساب'))
+                  child: Text('عمل حساب')),
             ],
           ),
         ),

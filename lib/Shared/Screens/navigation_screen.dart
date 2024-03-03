@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Shared/Screens/Translators_screen.dart';
-import 'package:untitled/Shared/Screens/home_Screen.dart';
 import 'package:untitled/Shared/Widget/navigator_controller.dart';
 import 'package:untitled/Shared/Screens/profle_screen.dart';
 
@@ -13,7 +11,7 @@ class Navigation_screen extends StatefulWidget {
 
 class _Navigation_screenState extends State<Navigation_screen> {
   String langouge = 'اللغة العربية';
-  int curant = 0;
+  int current = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,10 +43,10 @@ class _Navigation_screenState extends State<Navigation_screen> {
           ),
         ],
         onTap: (i) {
-          curant = i;
+          current = i;
           setState(() {});
         },
-        currentIndex: curant,
+        currentIndex: current,
       ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -56,7 +54,7 @@ class _Navigation_screenState extends State<Navigation_screen> {
         title: ElevatedButton(
             style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xff3EB54B),
-                fixedSize: Size(MediaQuery.of(context).size.width / 3.1,
+                fixedSize: Size(MediaQuery.of(context).size.width / 2.5,
                     MediaQuery.of(context).size.height / 20),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0))),
@@ -93,7 +91,7 @@ class _Navigation_screenState extends State<Navigation_screen> {
           ),
         ],
       ),
-      body: Navigator_controller.screens[curant],
+      body: Navigator_controller.screens[current],
     );
   }
 }
