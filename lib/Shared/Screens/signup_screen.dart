@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Controller/auth_controller.dart';
+import 'package:untitled/Shared/Screens/home_Screen.dart';
+import 'package:untitled/Shared/Screens/navigation_screen.dart';
+import 'package:untitled/controller/auth_controller.dart';
 
-class Signup_screen extends StatefulWidget {
-  const Signup_screen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<Signup_screen> createState() => _Signup_screenState();
+  State<SignupScreen> createState() => _SignupScreenState();
+  
 }
 
-class _Signup_screenState extends State<Signup_screen> {
-  TextEditingController namecontroller = TextEditingController();
-  TextEditingController emailcontroller = TextEditingController();
-  TextEditingController passwordcontroller = TextEditingController();
+class _SignupScreenState extends State<SignupScreen> {
+  TextEditingController NameController =TextEditingController();
+   TextEditingController EmailController =TextEditingController();
+    TextEditingController PasswordController =TextEditingController();
   @override
   Widget build(BuildContext context) {
-    double heightScreen = MediaQuery.of(context).size.height;
+       double heightScreen = MediaQuery.of(context).size.height;
     double widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -25,40 +28,44 @@ class _Signup_screenState extends State<Signup_screen> {
           margin: EdgeInsets.only(left: 16, right: 16),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          child: ListView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
                 "assets/image/8111388 1.png",
                 height: heightScreen * 0.34,
                 width: widthScreen * 0.74,
               ),
+
               SizedBox(
                 height: 40,
               ),
               TextFormField(
-                controller: namecontroller,
+                controller: NameController,
+                obscureText: false,
                 decoration: InputDecoration(
-                  hintText: 'الاسم ',
+                  hintText: 'الاسم',
+                  hintStyle: TextStyle(
+                    color: Colors.cyan,
+                  ),
                   border: OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey)),
                   prefixIcon: Icon(Icons.person),
-                  // labelText: 'enter your mail',
+                  
                 ),
               ),
+              
               SizedBox(
                 height: 19,
               ),
               TextFormField(
-                controller: emailcontroller,
+                controller: EmailController,
                 decoration: InputDecoration(
                   hintText: 'البريد الالكتروني ',
                   hintStyle: TextStyle(
                     color: Colors.deepOrange,
                   ),
                   border: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey)),
                   prefixIcon: Icon(Icons.email_outlined),
                   // labelText: 'enter your mail',
                 ),
@@ -67,16 +74,14 @@ class _Signup_screenState extends State<Signup_screen> {
                 height: 19,
               ),
               TextFormField(
-                controller: passwordcontroller,
+                controller: PasswordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'كلمة المرور',
                   hintStyle: TextStyle(
-                    color: Colors.grey,
+                    color: Colors.cyan,
                   ),
                   border: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey)),
                   prefixIcon: Icon(Icons.lock),
                   suffixIcon: Icon(Icons.visibility_off),
                 ),
@@ -86,15 +91,8 @@ class _Signup_screenState extends State<Signup_screen> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Map data = {
-                      "email": emailcontroller.text,
-                      "password": passwordcontroller.text,
-                      "name": namecontroller.text
-                    };
-                    if (namecontroller.text.isNotEmpty &&
-                        emailcontroller.text.isNotEmpty &&
-                        passwordcontroller.text.isNotEmpty)
-                      AuthController().signup(data);
+
+
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xff3EB54B),

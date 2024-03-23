@@ -73,7 +73,7 @@ class LoginScreen2 extends StatelessWidget {
                   child: Text('تسجيل الدخول')),
               TextButton(
                   onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Signup_screen())),
+                      MaterialPageRoute(builder: (context) => HomeScreen())),
                   child: Text('عمل حساب'))
             ],
           ),
