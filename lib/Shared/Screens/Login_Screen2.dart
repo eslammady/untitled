@@ -3,7 +3,16 @@ import 'package:untitled/Shared/Screens/home_Screen.dart';
 import 'package:untitled/Shared/Screens/navigation_screen.dart';
 import 'package:untitled/Shared/Screens/signup_screen.dart';
 
-class LoginScreen2 extends StatelessWidget {
+import '../../Controller/auth_controller.dart';
+
+class LoginScreen2 extends StatefulWidget {
+  @override
+  State<LoginScreen2> createState() => _LoginScreen2State();
+}
+
+class _LoginScreen2State extends State<LoginScreen2> {
+  TextEditingController EmailController =TextEditingController();
+  TextEditingController PasswordController =TextEditingController();
   @override
   Widget build(BuildContext context) {
     double heightScreen = MediaQuery.of(context).size.height;
@@ -30,6 +39,7 @@ class LoginScreen2 extends StatelessWidget {
                 height: 40,
               ),
               TextFormField(
+                controller: EmailController,
                 decoration: InputDecoration(
                   hintText: 'البريد الالكتروني ',
                   hintStyle: TextStyle(
@@ -44,6 +54,7 @@ class LoginScreen2 extends StatelessWidget {
                 height: 19,
               ),
               TextFormField(
+                controller: PasswordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'كلمة المرور',
@@ -60,10 +71,9 @@ class LoginScreen2 extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Navigation_screen()));
-                    // print('hellowold');
-                    HomeScreen();
+                    AuthController().usersignup(EmailController, PasswordController, context);
+
+
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xff3EB54B),

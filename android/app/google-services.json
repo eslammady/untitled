@@ -1,26 +1,51 @@
 {
   "project_info": {
-    "project_number": "30640547916",
-    "project_id": "graduation-project-c1423",
-    "storage_bucket": "graduation-project-c1423.appspot.com"
+    "project_number": "951367071223",
+    "project_id": "slu-app-17c34",
+    "storage_bucket": "slu-app-17c34.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:30640547916:android:8d3e93c98848697859ace9",
+        "mobilesdk_app_id": "1:951367071223:android:ce416a0fce59e4c70eeaf2",
         "android_client_info": {
           "package_name": "com.example.untitled"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "951367071223-fjdd36gq8onp6ln6skgj4ofmn6533g5g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.untitled",
+            "certificate_hash": "1fe9f3bb4449c4b3bcc217660d7f52d6283efd78"
+          }
+        },
+        {
+          "client_id": "951367071223-4l08op3nvdcd5e4dddlgonali06ovfej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDex945GCo69ba5ffVenrD9ay_DG_QoZEE"
+          "current_key": "AIzaSyCRHcgJm_IOaAOUCMB8QCsoK-2J9AZ6jI4"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951367071223-4l08op3nvdcd5e4dddlgonali06ovfej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "951367071223-afm80b1vr1ate7e8sh81nc950cnk4e1k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.untitled"
+              }
+            }
+          ]
         }
       }
     }
